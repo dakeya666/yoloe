@@ -1,0 +1,36 @@
+
+Traceback (most recent call last):
+  File "/home/sda1/lvtc/DL/yolov26/trainE.py", line 18, in <module>
+    results = model.train(
+  File "/home/sda1/lvtc/DL/yolov26/ultralytics/engine/model.py", line 774, in train
+    self.trainer.train()
+  File "/home/sda1/lvtc/DL/yolov26/ultralytics/engine/trainer.py", line 244, in train
+    self._do_train()
+  File "/home/sda1/lvtc/DL/yolov26/ultralytics/engine/trainer.py", line 436, in _do_train
+    loss, self.loss_items = self.model(batch)
+  File "/home/sda1/lvtc/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/sda1/lvtc/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/sda1/lvtc/DL/yolov26/ultralytics/nn/tasks.py", line 141, in forward
+    return self.loss(x, *args, **kwargs)
+  File "/home/sda1/lvtc/DL/yolov26/ultralytics/nn/tasks.py", line 1223, in loss
+    preds = self.forward(
+  File "/home/sda1/lvtc/DL/yolov26/ultralytics/nn/tasks.py", line 142, in forward
+    return self.predict(x, *args, **kwargs)
+  File "/home/sda1/lvtc/DL/yolov26/ultralytics/nn/tasks.py", line 1195, in predict
+    x = m(x)  # run
+  File "/home/sda1/lvtc/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/sda1/lvtc/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/sda1/lvtc/DL/yolov26/ultralytics/nn/modules/head.py", line 1105, in forward
+    return super().forward(x)
+  File "/home/sda1/lvtc/DL/yolov26/ultralytics/nn/modules/head.py", line 151, in forward
+    preds = self.forward_head(x, **self.one2many)
+  File "/home/sda1/lvtc/DL/yolov26/ultralytics/nn/modules/head.py", line 1157, in forward_head
+    [contrastive_head[i](cls_head[i](x[i]), x[-1]).reshape(bs, self.nc, -1) for i in range(self.nl)], dim=-1
+  File "/home/sda1/lvtc/DL/yolov26/ultralytics/nn/modules/head.py", line 1157, in <listcomp>
+    [contrastive_head[i](cls_head[i](x[i]), x[-1]).reshape(bs, self.nc, -1) for i in range(self.nl)], dim=-1
+RuntimeError: cannot reshape tensor of 0 elements into shape [2, 0, -1] because the unspecified dimension size -1 can be any value and is ambiguous
+
